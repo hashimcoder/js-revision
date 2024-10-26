@@ -60,6 +60,30 @@ if ("hello") {
   let result3 = !!"world"; // true (double negation forces boolean conversion)
   
 
+  let gameCounter = 100
+
+  let number1,number2,number3
+
+ number1 = number2 = number3 = 2+2  /// output 4
+
+ console.log(toString(number1))
+
+ // pre increment ++ variable
+   
+ let x = 4    // increases the value by 1 before its used in the expression
+ let y = x++
+
+ console.log(`"X:${x}","y":${y}`)  // expected output x = 5 y = 4
+
+ // post increment 
+
+ let a = 4    // increases the value by 1 after its used in the expression 
+ let b = ++a
+
+
+ console.log(`"a":${a},"b":${b}`) // expected output a:4 b:5
+
+  
 
   // SUMMARY OF TYPE CONVERSION 
 
