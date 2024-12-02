@@ -98,3 +98,14 @@ const addTwo = function(num){
 }
 
 console.log(addTwo(5))
+
+ const boy = {
+    name:"salar",
+    age:"2o",
+    address:"rampur"
+ }
+
+ for (const key in boy) {
+      console.log(`${key}:${boy[keyS]}`)
+    }
+ 
