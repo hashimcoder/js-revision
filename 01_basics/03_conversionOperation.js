@@ -21,7 +21,7 @@ let num1 = Number(string)
 
 // console.log( typeof num1)
 
-let num2 = parseInt(string)
+let num2 = parseInt(string) //
 let floatStr = "123.5"
 let num3 = parseFloat(floatStr)
 
