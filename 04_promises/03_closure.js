@@ -1,6 +1,6 @@
 
-// A closure happens when a function remembers variables
-//  from the scope where it was created — even if that scope has already finished running.
+// // A closure happens when a function remembers variables
+// //  from the scope where it was created — even if that scope has already finished running.
 
 // function makeFunc() {
 //         var name = "Mozilla"; // local variable
@@ -27,24 +27,128 @@
 //     counter();
 
 
-    function bankAccount() {
-  let balance = 0;
-  return {
-    deposit(amount) {
-      balance += amount;
-      console.log(`Deposited: ${amount}, Balance: ${balance}`);
-    },
-    withdraw(amount) {
-      if (amount <= balance) {
-        balance -= amount;
-        console.log(`Withdrew: ${amount}, Balance: ${balance}`);
-      } else {
-        console.log('Insufficient funds');
-      }
-    }
-  };
-}
+//     function bankAccount() {
+//   let balance = 0;
+//   return {
+//     deposit(amount) {
+//       balance += amount;
+//       console.log(`Deposited: ${amount}, Balance: ${balance}`);
+//     },
+//     withdraw(amount) {
+//       if (amount <= balance) {
+//         balance -= amount;
+//         console.log(`Withdrew: ${amount}, Balance: ${balance}`);
+//       } else {
+//         console.log('Insufficient funds');
+//       }
+//     }
+//   };
+// }
 
-const myAcc = bankAccount();
-myAcc.deposit(500); // Deposited: 100, Balance: 100
-myAcc.withdraw(100); // Withdrew: 50, Balance: 50
+// const myAcc = bankAccount();
+// myAcc.deposit(500); // Deposited: 100, Balance: 100
+// myAcc.withdraw(100); // Withdrew: 50, Balance: 50
+
+// // function makeCounter(){
+// //     let count = 0;
+// //     return {
+// //         increment: function(){
+// //             count++;
+// //             console.log(count);
+// //         },
+// //         decrement: function(){
+// //             count--;
+// //             console.log(count);
+// //         },
+// //         reset: function(){
+// //             count = 0;
+// //             console.log(count)
+// //         },
+// //         get: function(){
+// //             return count
+// //         }
+
+// //     }
+// // }
+
+// // const counter = makeCounter();
+// // counter.increment();
+// // counter.increment();
+// // console.log(counter.get());
+// // counter.reset();
+// // console.log(counter.get());
+
+
+// function asyncCounter(){
+//     let count = 0;
+//     return {
+//         incrementLater: function(){
+//             setTimeout(()=>{
+//                 count++;
+//                 console.log("After timeout",count)
+//             },1000)
+
+//         },
+//         incrementLater2: function(){
+//             setTimeout(()=>{
+//                 count++;
+//                 console.log("After timeout1",count)
+//             },1000)
+//         },
+//         incrementNow: function(){
+//             count++;
+//             console.log("Immediately",count)
+//         },
+//         get: function(){
+//             return count
+//         }
+
+//     }
+// }
+// const counterAsync = asyncCounter();
+// counterAsync.incrementLater();
+// counterAsync.incrementNow();
+// counterAsync.incrementLater2();
+// console.log("Right after calls:",counterAsync.get());
+
+
+// function arrangeCounter(){
+//     let count = 0;
+//     return {
+//         increment1: function () {
+//             count ++;
+//             console.log("increase by 1",count)
+//         },
+//         increment2: function(){
+//             count ++;
+//             console.log("increase by 1",count)
+//         },
+//         increment3: function(){
+//             count ++;
+//             console.log("increase by 1",count)
+//         },
+        
+//         get: function(){
+//             return count
+//         }
+//     }
+// }
+// const counterArr = arrangeCounter();
+// counterArr.increment1();
+// counterArr.increment2();
+// counterArr.increment3();
+
+
+function createCounter(){
+    let count = 0;
+    return function(){
+        return ++count;
+
+    }
+}
+// a and b are two separate closures each has its own count variable 
+const a = createCounter();  
+const b = createCounter();
+console.log(a())
+console.log(a())
+console.log(b())
